@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import { APP_ROUTING } from './app.route';
+import { APP_ROUTING } from './app.routes';
 
 import { AppComponent } from './app.component';
 import { SearchComponent } from './components/search/search.component';
