@@ -6,11 +6,13 @@ import { SpotifyService } from '../../services/spotify.service';
   templateUrl: './search.component.html'
 })
 export class SearchComponent implements OnInit {
+  termino: string = '';
   constructor(public spotify: SpotifyService) { }
 
-  ngOnInit() {
-    this.spotify.getArtists('metallica')
+  ngOnInit() { }
+
+  searchArtist() {
+    this.spotify.getArtists(this.termino)
       .subscribe();
   }
-
 }
