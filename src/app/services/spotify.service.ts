@@ -6,15 +6,16 @@ import 'rxjs/add/operator/map';
 export class SpotifyService {
   artists: any[] = [];
   urlSearch: string = "https://api.spotify.com/v1/search";
+  urlArtist: string = "https://api.spotify.com/v1/artists";
 
-  constructor(public http: Http) { }
+  constructor(public http: Http) {  }
 
   getArtists(termino: string) {
     let query = `?q=${ termino }&type=artist`;
     let url = this.urlSearch + query;
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
-    headers.append('Authorization', 'Bearer BQDudAhfjfVjNbi5FFJ_5os5qmPsCpzm2c2K57PDhwpZabA_r0e6sQR_IzHl4ie0ZdJqlPB8ZKyg-IPW5yDEKZc29_wGqWCSmQOlm2Nb_DK_Ddo63bAz-cuVwDUu1xNYF-WVVPpUW8pXnTKQ8D2hIAS7pALpO1LTbg');
+    headers.append('Authorization', 'Bearer BQDelRbCUsWlP91bc3VZzOuKRLGYsT01cJAk2sjm3cDU3MGvC70YLjhyvDS50NynEkdlLvLfPxQLFw26kdc5Fp4mkH64fN24Nda16lr3-6sGggAxWuJzDYycdw-qQrJWVNFmUIh9g57qY3Dp_71iOro7bg2VQZtZRQ');
 
     return this.http.get(url, { headers })
       .map(res => {
@@ -22,6 +23,20 @@ export class SpotifyService {
         console.log(this.artists);
 
         return res.json().artists.items;
+      });
+  }
+
+  getArtist(id: string) {
+    let query = `/${ id }`;
+    let url = this.urlArtist + query;
+    let headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    headers.append('Authorization', 'Bearer BQDelRbCUsWlP91bc3VZzOuKRLGYsT01cJAk2sjm3cDU3MGvC70YLjhyvDS50NynEkdlLvLfPxQLFw26kdc5Fp4mkH64fN24Nda16lr3-6sGggAxWuJzDYycdw-qQrJWVNFmUIh9g57qY3Dp_71iOro7bg2VQZtZRQ');
+
+    return this.http.get(url, { headers })
+      .map(res => {
+        console.log(res.json());
+        return res.json();
       });
   }
 }

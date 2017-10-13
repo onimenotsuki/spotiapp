@@ -14,6 +14,7 @@ import { SearchComponent } from './components/search/search.component';
 import { HomeComponent } from './components/home/home.component';
 import { NavbarComponent } from './components/shared/navbar/navbar.component';
 import { NophotoPipe } from './pipes/nophoto.pipe';
+import { ArtistComponent } from './components/artist/artist.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { NophotoPipe } from './pipes/nophoto.pipe';
     SearchComponent,
     HomeComponent,
     NavbarComponent,
-    NophotoPipe
+    NophotoPipe,
+    ArtistComponent
   ],
   imports: [
     BrowserModule,
